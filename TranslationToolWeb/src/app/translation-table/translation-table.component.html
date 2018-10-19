@@ -1,0 +1,33 @@
+<mat-form-field>
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+</mat-form-field>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="Id">
+    <th mat-header-cell *matHeaderCellDef> ID </th>
+    <td mat-cell *matCellDef="let element"> {{element.Id}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="Key">
+    <th mat-header-cell *matHeaderCellDef> Key </th>
+    <td mat-cell *matCellDef="let element"> {{element.Key}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="OriginalText">
+    <th mat-header-cell *matHeaderCellDef> Text </th>
+    <td mat-cell *matCellDef="let element"> {{element.OriginalText}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="TranslatorNotes">
+    <th mat-header-cell *matHeaderCellDef> Notes </th>
+    <td mat-cell *matCellDef="let element"> {{element.TranslatorNotes}}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
